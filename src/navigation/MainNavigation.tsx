@@ -11,7 +11,7 @@ const MainNavigation = () => {
     const Tab = createBottomTabNavigator();
 
     return (
-        <Tab.Navigator initialRouteName='Movies'>
+        <Tab.Navigator initialRouteName='Movies' screenOptions={{headerTitleAlign: 'center'}} >
             <Tab.Screen 
                 name='Favorites' 
                 component={FavoritesMovies} 
@@ -27,6 +27,12 @@ const MainNavigation = () => {
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: () => renderImgMovies(),
+                    headerStyle: {
+                        backgroundColor: '#151c26',
+                      },
+                    headerTintColor: '#fff',
+                    headerRight: () => (<Icon name='search' size={20} color={'#fff'} />),
+                    headerRightContainerStyle: { right: 20 } ,
                 }}
             />
             <Tab.Screen 
@@ -42,6 +48,8 @@ const MainNavigation = () => {
     )
 }
 
+export default MainNavigation
+
 const renderImgMovies = () : any => {
     return(
         <Image 
@@ -51,4 +59,3 @@ const renderImgMovies = () : any => {
     )
 } 
 
-export default MainNavigation
