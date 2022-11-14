@@ -5,6 +5,7 @@ import Icon  from 'react-native-vector-icons/FontAwesome5';
 import FavoritesMovies from '../screens/FavoritesMovies';
 import Movies from '../screens/Movies';
 import Account from '../screens/Account';
+import MoviesNavigation from '../screens/MoviesNavigation';
 
 const MainNavigation = () => {
 
@@ -23,7 +24,7 @@ const MainNavigation = () => {
             />
             <Tab.Screen 
                 name='Movies' 
-                component={Movies} 
+                component={MoviesNavigation} 
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: () => renderImgMovies(),
@@ -44,6 +45,7 @@ const MainNavigation = () => {
                     )
                 }}
             />
+            
         </Tab.Navigator>
     )
 }

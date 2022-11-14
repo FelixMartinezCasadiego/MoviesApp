@@ -21,3 +21,21 @@ export interface Result {
     vote_average:      number;
     vote_count:        number;
 }
+
+export interface TrendingPeopleInformation {
+    page:          number;
+    results:       ResultTrendingPeople[];
+    total_pages:   number;
+    total_results: number;
+}
+
+export interface ResultTrendingPeople {
+    adult:                boolean;
+    gender:               number;
+    id:                   number;
+    known_for:            any[];
+    known_for_department: string;
+    name:                 string;
+    popularity:           number;
+    profile_path:         string;
+}

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef} from 'react';
 import { retriveDiscoversNewMovies } from '../api';
 import {MoviesInformation} from '../api/typeApi';
 import Paginator from './Paginator';
+import TrendingPeople from './TrendingPeople';
 
 const CarrouselMovies = () => {
 
@@ -30,7 +31,7 @@ const CarrouselMovies = () => {
                             style={styles.imageCarrousel}
                             resizeMode='stretch'
                         />
-                        <Text style={styles.textcarousel} > {item.original_title} </Text>
+                        <Text style={styles.textcarousel} > {item.original_title}</Text>
                     </View>
                 }
                 horizontal
@@ -41,6 +42,9 @@ const CarrouselMovies = () => {
             />
             
             <Paginator carrouselMovieDetails={carrouselMovieDetails} scrollX={scrollX} />
+            <Text style={styles.textCarouselTrendingPeople}>Trending People</Text>
+            <TrendingPeople />
+            <Text style={styles.textCarouselPopularMovies}> Popular Movies </Text>
         </View>
     )
 }
@@ -63,5 +67,19 @@ const styles = StyleSheet.create({
     },
     textcarousel: {
         color: '#fff'
+    },
+    textCarouselTrendingPeople: {
+        color: '#fff',
+        backgroundColor: '#151c26',
+        paddingLeft: 7
+    },
+    textCarouselPopularMovies: {
+        color: '#fff',
+        backgroundColor: '#151c26',
+        paddingLeft: 7,
+        paddingBottom: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: 20
     }
 })
