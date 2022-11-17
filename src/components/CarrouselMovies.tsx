@@ -27,7 +27,7 @@ const CarrouselMovies = () => {
                 renderItem={({item}) => 
                     <View style={styles.containerCarrousel}>
                         <Image 
-                            source={{uri:`https://image.tmdb.org/t/p/original${item.poster_path}`}}
+                            source={{uri:`https://image.tmdb.org/t/p/original${item.backdrop_path}`}}
                             style={styles.imageCarrousel}
                             resizeMode='stretch'
                         />
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#151c26',
-        paddingVertical: 5
+        paddingBottom: 5,
     },
     imageCarrousel: {
         resizeMode: 'center',

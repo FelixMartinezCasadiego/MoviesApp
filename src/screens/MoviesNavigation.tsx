@@ -8,7 +8,7 @@ const MoviesNavigation = () => {
   return (
     <Stack.Navigator>
         <Stack.Screen 
-            name='Movies'
+            name='App Movies'
             component={Movies}
             options={{title: "", headerTransparent: true}}
         />
