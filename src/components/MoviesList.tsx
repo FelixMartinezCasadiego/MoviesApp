@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
 import React from 'react';
 import {Result} from '../api/typeApi'
 import { useNavigation } from '@react-navigation/native';
@@ -15,18 +15,18 @@ const MoviesList = ({movieDetail} : Props) => {
 
   const navigation = useNavigation<MovieDetails>();
   const goToMovieDetails = () => {
-    navigation.navigate("MovieDetails", {id : movieDetail.id});
+    navigation.navigate("MovieDetails", {id: movieDetail.id})
   };
 
   return (
-    <TouchableOpacity onPress={goToMovieDetails} style={styles.containerList} >
+    <Pressable onPress={goToMovieDetails} style={styles.containerList} >
         <Text style={styles.textMoviesList} > {movieDetail.original_title} </Text>
         <View style={styles.imgContainer}>
         <Image 
           source={{uri:`https://image.tmdb.org/t/p/original${movieDetail.backdrop_path}`}} 
           style={styles.imageMovieContainer}
         /></View>
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 

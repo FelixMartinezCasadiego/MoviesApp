@@ -15,6 +15,7 @@ const MoviesNavigation = () => {
         <Stack.Screen 
             name='MovieDetails'
             component={MovieDetails}
+            options={{title: ""}}
         />
     </Stack.Navigator>
   )
