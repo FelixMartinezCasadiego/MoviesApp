@@ -3,7 +3,6 @@ import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon  from 'react-native-vector-icons/FontAwesome5';
 import FavoritesMovies from '../screens/FavoritesMovies';
-import Movies from '../screens/Movies';
 import Account from '../screens/Account';
 import MoviesNavigation from '../screens/MoviesNavigation';
 
