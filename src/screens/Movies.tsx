@@ -10,7 +10,7 @@ const Movies = () => {
     const [apiMovies, setApiMovies] = useState<MoviesInformation>();
     const [resultsMovies, setResultsMovies] = useState<Result[]>([]);
     const [page, setPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         if(page === 1)
@@ -33,6 +33,7 @@ const Movies = () => {
                     setIsLoading(true)
             }
     }, [page])
+
 
     const loadMoreMovies = () => {
         if(apiMovies?.total_pages && page < apiMovies.total_pages){

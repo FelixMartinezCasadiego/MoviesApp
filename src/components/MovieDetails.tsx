@@ -28,8 +28,8 @@ const MovieDetails = ({route: {params}} : PropsMovieDetails) => {
   }, [params.id]);
 
   const getGenre = () => {
-    return movieIdDetails?.genres.map(genre => (
-      <View style={styles.genreContainer}>
+    return movieIdDetails?.genres.map((genre, index) => (
+      <View style={styles.genreContainer} key={index}>
         <Text style={styles.genre}>{genre.name}</Text>
       </View>
     ));
@@ -75,7 +75,7 @@ const MovieDetails = ({route: {params}} : PropsMovieDetails) => {
         </View>
 
         <Text style={styles.heading}>GENRE</Text>
-            <View style={{display: 'flex', flexDirection: 'row', paddingBottom: 60}} key={movieIdDetails?.id}>
+            <View style={{display: 'flex', flexDirection: 'row', paddingBottom: 60}}>
               {getGenre()}
             </View>
         

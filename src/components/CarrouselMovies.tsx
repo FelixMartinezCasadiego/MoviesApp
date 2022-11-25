@@ -1,13 +1,16 @@
-import { View, Text, StyleSheet, FlatList, Image, Dimensions, Animated } from 'react-native';
-import React, { useState, useEffect, useRef} from 'react';
+import { View, Text, StyleSheet, FlatList, Image, Dimensions, Animated, TextInput } from 'react-native';
+import React, { useState, useEffect, useRef, useContext} from 'react';
 import { retriveDiscoversNewMovies } from '../api';
 import {MoviesInformation} from '../api/typeApi';
 import Paginator from './Paginator';
 import TrendingPeople from './TrendingPeople';
+import {ContextMovies} from '../context/Context';
 
 const CarrouselMovies = () => {
 
     const [carrouselMovies, setCarrouselMovies] = useState<MoviesInformation>();
+
+    const {searchToggle, searchMoviesByUser, setSearchMoviesByUser } : any = useContext(ContextMovies);
 
     useEffect(() => {
         retriveDiscoversNewMovies()
@@ -20,7 +23,17 @@ const CarrouselMovies = () => {
     const scrollX = useRef(new Animated.Value(0)).current;
     
     return (
-        <View >
+        <View style={styles.backgroundContainer}>
+            { 
+                searchToggle === true ? 
+                    <TextInput 
+                        style={styles.inputSearch}
+                        onChangeText={setSearchMoviesByUser}
+                        value={searchMoviesByUser}
+                        placeholder='Search Movies'
+                    /> 
+                : ''
+            }
             <FlatList 
                 data={carrouselMovieDetails}
                 keyExtractor={(item) =>String(item.id)}
@@ -70,7 +83,6 @@ const styles = StyleSheet.create({
     },
     textCarouselTrendingPeople: {
         color: '#fff',
-        backgroundColor: '#151c26',
         paddingLeft: 7
     },
     textCarouselPopularMovies: {
@@ -81,5 +93,15 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 20
+    },
+    inputSearch: {
+        height: 40,
+        borderWidth: 1,
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: '#fff'
+    },
+    backgroundContainer: {
+        backgroundColor: '#151c26',
     }
 })

@@ -7,3 +7,5 @@ export const retriveDiscoversNewMovies = () => axios.get('https://api.themoviedb
 export const retriveTrendingPeople = () => axios.get('https://api.themoviedb.org/3/person/popular?api_key=7186072bde2dd099c79ca5f770428be1&language=en-US&page=1').then(({data}) => data)
 
 export const retriveMovieById = (movie_id : number) => axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=7186072bde2dd099c79ca5f770428be1&language=en-US`).then(({data}) => data)
+
+export const retriveSearchMovies = (page: number = 1, search : string) => axios.get(`https://api.themoviedb.org/3/search/company?api_key=7186072bde2dd099c79ca5f770428be1&page=${page}&query=${search}`).then(({data}) => data)
