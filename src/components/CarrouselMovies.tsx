@@ -34,6 +34,12 @@ const CarrouselMovies = () => {
                     /> 
                 : ''
             }
+            {/* <TextInput 
+                    style={styles.inputSearch}
+                    onChangeText={setSearchMoviesByUser}
+                    value={searchMoviesByUser}
+                    placeholder='Search Movies'
+                    /> */} 
             <FlatList 
                 data={carrouselMovieDetails}
                 keyExtractor={(item) =>String(item.id)}
