@@ -30,16 +30,16 @@ const CarrouselMovies = () => {
                         style={styles.inputSearch}
                         onChangeText={setSearchMoviesByUser}
                         value={searchMoviesByUser}
-                        placeholder='Search Movies'
-                    /> 
+                        placeholder='Search Movies' 
+                    />
                 : ''
             }
-            {/* <TextInput 
+            <TextInput 
                     style={styles.inputSearch}
                     onChangeText={setSearchMoviesByUser}
                     value={searchMoviesByUser}
                     placeholder='Search Movies'
-                    /> */} 
+                    /> 
             <FlatList 
                 data={carrouselMovieDetails}
                 keyExtractor={(item) =>String(item.id)}
@@ -101,11 +101,11 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     inputSearch: {
-        height: 40,
+        height: 70,
         borderWidth: 1,
         padding: 10,
         borderRadius: 10,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff', 
     },
     backgroundContainer: {
         backgroundColor: '#151c26',

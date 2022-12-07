@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { UserDetails } from '../utils/UserDB';
 
 interface Props {
     children: JSX.Element | JSX.Element[] // un elemento jsx hijo | varios elementos jsx hijos
@@ -10,7 +11,7 @@ const Context = ({children} : Props) => {
 
   const [searchToggle, setSearchToggle] = useState(false);
 
-  const [searchMoviesByUser, setSearchMoviesByUser] = useState();
+  const [searchMoviesByUser, setSearchMoviesByUser] = useState('');
 
   const showSearch = () => {
     if(searchToggle === false){
@@ -20,6 +21,16 @@ const Context = ({children} : Props) => {
     }
   }
 
+  const [auth, setAuth] = useState<UserDetails | void | string>("");
+
+  const login = (userDB : UserDetails) => {
+    setAuth(userDB)
+  }
+
+  const logout = () => {
+    setAuth("")
+  }
+
   return (
     <ContextMovies.Provider
         value= {{
@@ -27,7 +38,11 @@ const Context = ({children} : Props) => {
                   setSearchToggle, 
                   showSearch,
                   searchMoviesByUser,
-                  setSearchMoviesByUser
+                  setSearchMoviesByUser,
+                  auth,
+                  setAuth,
+                  login,
+                  logout
                 }}
     >
         {children}

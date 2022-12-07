@@ -1,4 +1,4 @@
-import { FlatList, ActivityIndicator, StyleSheet, TextInput, View } from 'react-native'
+import { FlatList, ActivityIndicator, StyleSheet, View } from 'react-native'
 import React, {useState, useEffect, useContext} from 'react';
 import { retrivePopularMovies, retriveSearchMovies } from '../api';
 import MoviesList from '../components/MoviesList';
@@ -25,7 +25,7 @@ const Movies = () => {
                 .catch((err) => {throw new Error(err)})
             setIsLoading(true)
         }
-        else if (page !== 1 && searchMoviesByUser === '') {
+        else if (page !== 1 && searchMoviesByUser === '' || page !== 1 && searchMoviesByUser === undefined ) {
             retrivePopularMovies(page)
                     .then((resp) => {
                                 setApiMovies(resp);
@@ -53,8 +53,6 @@ const Movies = () => {
         
     }, [page, searchMoviesByUser])
 
-    const {setSearchMoviesByUser} : any = useContext(ContextMovies)
-
     const loadMoreMovies = () => {
         if(apiMovies?.total_pages && page < apiMovies.total_pages){
             setPage(page + 1)
@@ -71,12 +69,6 @@ const Movies = () => {
                 data={resultsMovies}
                 ListHeaderComponent={
                     <View>
-                        <TextInput 
-                    style={styles.inputSearch}
-                    onChangeText={setSearchMoviesByUser}
-                    value={searchMoviesByUser}
-                    placeholder='Search Movies'
-                    /> 
                         <CarrouselMovies />
                     </View>
                 }

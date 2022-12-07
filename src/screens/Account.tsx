@@ -1,10 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View } from 'react-native'
+import React, {useContext} from 'react'
+import LoginForm from '../components/auth/LoginForm'
+import { ContextMovies } from '../context/Context'
+import UserData from '../components/auth/UserData'
 
 const Account = () => {
+
+  const {auth} : any = useContext(ContextMovies)
+
   return (
     <View>
-      <Text>Account</Text>
+      {auth !== "" && auth !== undefined ? <UserData /> : <LoginForm />}
+      
     </View>
   )
 }
